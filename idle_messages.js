@@ -1,5 +1,5 @@
 change();
-setInterval(change, 1000);
+setInterval(change, 5000);
 
 function change() {
     rpg_box = document.getElementById("idle_msg");
