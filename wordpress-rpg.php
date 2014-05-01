@@ -121,9 +121,9 @@ function calculate_stats($input){
 
 
     #Based on post length:
-    if(strlen($input) < 200){
+    if(str_word_count($input) < 200){
         $stats["dwarf"]++;        
-    }else if(strlen($input) > 1000){
+    }else if(str_word_count($input) > 1000){
         $stats["giant"]++;
     }
     
@@ -182,7 +182,7 @@ function add_experience() {
             }
         }
 
-        $exp = strlen($_POST['content']) + $experience;
+        $exp = strlen(str_word_count($_POST['content'])) + $experience; #going off of word count instead of characters
         calculate_stats($_POST['content']);
         $json = json_encode(array( 
                                    "total_experience" => $exp, 
