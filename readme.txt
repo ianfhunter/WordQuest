@@ -67,3 +67,7 @@ I'm thinking of adding in some graphs and stats to show how your hero has progre
 * Character Classes!
 * Visually levelling Heroes!
 * Rotating Idle Messages
+
+== Image Attributions ==
+
+Character : Leon Murayami - http://leon-murayami.deviantart.com/art/Illusion-of-Gaia-Will-XP-402827050
