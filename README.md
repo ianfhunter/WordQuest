@@ -18,4 +18,4 @@ OpenSource - Add your own activities for your hero.https://github.com/ianfhunter
 * May not work with the Hello Dolly plugin. To be tested.
 
 ## Image Attributions:
-Character : Leon Murayami - http://leon-murayami.deviantart.com/art/Illusion-of-Gaia-Will-XP-402827050
+Hero Sprites: http://untamed.wild-refuge.net/rmxpresources.php?characters

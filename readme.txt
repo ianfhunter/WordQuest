@@ -70,4 +70,4 @@ I'm thinking of adding in some graphs and stats to show how your hero has progre
 
 == Image Attributions ==
 
-Character : Leon Murayami - http://leon-murayami.deviantart.com/art/Illusion-of-Gaia-Will-XP-402827050
+Hero Sprites: http://untamed.wild-refuge.net/rmxpresources.php?characters
