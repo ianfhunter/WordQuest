@@ -11,7 +11,7 @@ See the visual changes to your avatar as you level up.
 
 Your hero changes class according to your posting style!
 
-OpenSource - Add your own activities for your hero. https://github.com/ianfhunter/Wordpress-RPG/
+OpenSource - Add your own activities for your hero.https://github.com/ianfhunter/WordQuest
 
 ## Notes
 

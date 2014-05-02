@@ -26,7 +26,7 @@ See the visual changes to your avatar as you level up.
 
 Your hero changes class according to your posting style!
 
-OpenSource - Add your own activities for your hero. https://github.com/ianfhunter/Wordpress-RPG/
+OpenSource - Add your own activities for your hero. https://github.com/ianfhunter/WordQuest
 
 == Installation ==
 
@@ -42,7 +42,7 @@ e.g.
 
 = What about Feature X? =
 
-If you'd like a feature, put in on the issue tracker and I'll take a look at it. https://github.com/ianfhunter/Wordpress-RPG/issues
+If you'd like a feature, put in on the issue tracker and I'll take a look at it. https://github.com/ianfhunter/WordQuest/issues
 
 There are plenty of things you can implement yourself, without much tech knowledge, including additional idle messages and avatar animations. Feel free to email me suggestions if you don't know how to use Github.
 
