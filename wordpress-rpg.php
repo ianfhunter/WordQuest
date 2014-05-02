@@ -29,7 +29,7 @@ Author URI: www.ianhunter.ie
 
 #Returns a user's active quest from file
 function get_quest(){
-    $file = WP_PLUGIN_DIR."/Wordpress-RPG/experience" . get_current_user_id() . ".rpg"; 
+    $file = WP_PLUGIN_DIR."/WordQuest/experience" . get_current_user_id() . ".rpg"; 
     if (!file_exists($file)){
         $quest = add_quest();
     }else{
@@ -44,7 +44,7 @@ function get_quest(){
 #The info display in the top right hand corner.
 function admin_info_header() {
 
-    $file = WP_PLUGIN_DIR."/Wordpress-RPG/experience".get_current_user_id().".rpg"; 
+    $file = WP_PLUGIN_DIR."/WordQuest/experience".get_current_user_id().".rpg"; 
     if (!file_exists($file)){
         $quest = add_quest();
         $experience = 0;
@@ -83,9 +83,9 @@ function reduce($v, $p) {
 }
 
 function player_class(){
-    $file = WP_PLUGIN_DIR."/Wordpress-RPG/stats" . get_current_user_id() . ".rpg"; 
+    $file = WP_PLUGIN_DIR."/WordQuest/stats" . get_current_user_id() . ".rpg"; 
     if (file_exists($file)){
-        $file = WP_PLUGIN_DIR."/Wordpress-RPG/stats" . get_current_user_id() . ".rpg"; 
+        $file = WP_PLUGIN_DIR."/WordQuest/stats" . get_current_user_id() . ".rpg"; 
         $json = file_get_contents ( $file );
         $jsonD = json_decode($json,true);
 
@@ -102,7 +102,7 @@ function player_class(){
 }
 
 function calculate_stats($input){
-    $file = WP_PLUGIN_DIR."/Wordpress-RPG/stats" . get_current_user_id() . ".rpg"; 
+    $file = WP_PLUGIN_DIR."/WordQuest/stats" . get_current_user_id() . ".rpg"; 
     if (!file_exists($file)){
         $stats = array( "dwarf"       => 0,
                          "giant"       => 0,
@@ -155,7 +155,7 @@ function calculate_stats($input){
 function add_experience() {
     #Making sure that experience is only added on newly published items    
     if( ( $_POST['post_status'] == 'publish' ) && ( $_POST['original_post_status'] != 'publish' ) ) {
-        $file = WP_PLUGIN_DIR."/Wordpress-RPG/experience" . get_current_user_id() . ".rpg"; 
+        $file = WP_PLUGIN_DIR."/WordQuest/experience" . get_current_user_id() . ".rpg"; 
         if (!file_exists($file)){
             $experience = 0;
             $quest = add_quest();
@@ -192,43 +192,43 @@ function add_experience() {
     }
 }
 
-function category_whitelist(){
-    #always returns get_categories for now.
-    $file = WP_PLUGIN_DIR."/Wordpress-RPG/exclude" . get_current_user_id() . ".rpg"; 
-    if(!file_exists($file))
-        return get_categories();    #all whitelisted
-    }else{
-        $contents = file_get_contents($file);
-        return get_categories("exclude=". rtrim(implode("&",explode(",", $contents)),"&") );    #replaces "," with "&" and removes trailing character
-    }
-}
+// function category_whitelist(){
+//     #always returns get_categories for now.
+//     $file = WP_PLUGIN_DIR."/WordQuest/exclude" . get_current_user_id() . ".rpg"; 
+//     if(!file_exists($file)){
+//         return get_categories();    #all whitelisted
+//     }else{
+//         $contents = file_get_contents($file);
+//         return get_categories("exclude=". rtrim(implode("&",explode(",", $contents)),"&") );    #replaces "," with "&" and removes trailing character
+//     }
+// }
 
 #Activates a quest
 function add_quest(){
-    $cat_list = categories_whitelist();
+    $cat_list = get_categories();#categories_whitelist();
     $quest = $cat_list[array_rand($cat_list)];
     return $quest->{"cat_name"};
 }
 
-#Not integrated yet.
-function exclude_cat($number){
-    $file = WP_PLUGIN_DIR."/Wordpress-RPG/exclude" . get_current_user_id() . ".rpg"; 
-    $existing = ""
-    if(file_exists($file))
-        $existing = file_get_contents ( $file );
-    }   
-    file_put_contents($file, $existing . $number . ",");
-}
-function include_cat($name){
-    $file = WP_PLUGIN_DIR."/Wordpress-RPG/exclude" . get_current_user_id() . ".rpg"; 
-    $existing = ""
-    if(!file_exists($file))
-        return;    #nothing to un-exclude
-    } 
-    $existing = file_get_contents ( $file );
-    $new = str_replace($name . ',', '', $existing);
-    file_put_contents($file, $new);
-}
+// #Not integrated yet.
+// function exclude_cat($number){
+//     $file = WP_PLUGIN_DIR."/WordQuest/exclude" . get_current_user_id() . ".rpg"; 
+//     $existing = "";
+//     if(file_exists($file)){
+//         $existing = file_get_contents ( $file );
+//     }   
+//     file_put_contents($file, $existing . $number . ",");
+// }
+// function include_cat($name){
+//     $file = WP_PLUGIN_DIR."/WordQuest/exclude" . get_current_user_id() . ".rpg"; 
+//     $existing = "";
+//     if(!file_exists($file)){
+//         return;    #nothing to un-exclude
+//     } 
+//     $existing = file_get_contents ( $file );
+//     $new = str_replace($name . ',', '', $existing);
+//     file_put_contents($file, $new);
+// }
 
 
 function quest_metabox(){
@@ -236,7 +236,7 @@ function quest_metabox(){
 }
 
 function idle_messages(){
-    $file = WP_PLUGIN_DIR."/Wordpress-RPG/idle.rpg"; 
+    $file = WP_PLUGIN_DIR."/WordQuest/idle.rpg"; 
     $contents = explode("\n",file_get_contents($file));
     return $contents;
 }
@@ -245,7 +245,7 @@ function idle_messages(){
 function get_heroavatar(){
     $available_avatars = 7;    #TODO: generate this from the amount of files in the levels folder
     #Get level
-    $file = WP_PLUGIN_DIR."/Wordpress-RPG/experience".get_current_user_id().".rpg"; 
+    $file = WP_PLUGIN_DIR."/WordQuest/experience".get_current_user_id().".rpg"; 
     if (!file_exists($file)){
         $quest = add_quest();
         $experience = 0;
@@ -275,11 +275,11 @@ function draw_metabox(){
     #And also have avatars based on your character
     #Credit: http://leon-murayami.deviantart.com/art/Illusion-of-Gaia-Will-XP-402827050
 
-    echo " <img src='".plugins_url()."/Wordpress-RPG/levels/".get_heroavatar() .".gif' /> <div id='idle_msg'>" . "Killing some slimes... " . "</div>" . "Current Quest: Write about '" . get_quest() . "'";
+    echo " <img src='".plugins_url()."/WordQuest/levels/".get_heroavatar() .".gif' /> <div id='idle_msg'>" . "Killing some slimes... " . "</div>" . "Current Quest: Write about '" . get_quest() . "'";
     $params = array(
       'messages' => idle_messages(),
     );
-    wp_register_script('rotation_script',plugins_url().'/Wordpress-RPG/idle_messages.js');
+    wp_register_script('rotation_script',plugins_url().'/WordQuest/idle_messages.js');
     wp_localize_script('rotation_script', 'object_name', $params );
     wp_enqueue_script( 'rotation_script' );
 
