@@ -1,30 +1,30 @@
 === WordPress RPG ===
 Contributors: ianfhunter
-*   "Contributors" is a comma separated list of wp.org/wp-plugins.org usernames
-Donate link: http://example.com/
+Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=94YBVKCNZRPSE
 Tags: RPG, Role-Playing Game, Game, Incentive, Posts
 Requires at least: 3.0.1
-*   "Requires at least" is the lowest version that the plugin will work on
-Tested up to: 3.4
-*   "Tested up to" is the highest version that you've *successfully used to test the plugin*. Note that it might work on
-higher versions... this is just the highest one you've verified.
-Stable tag: 4.3
+Tested up to: 3.9
+Stable tag: 1.0
 *   Stable tag should indicate the Subversion "tag" of the latest stable version, or "trunk," if you use `/trunk/` for
 stable.
 
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-#Short Description
-What feature is WordPress severely lacking? Goblins. Dragons. This plugin is here to fix that.
+What feature is WordPress severely lacking? Goblins. Dragons. 
 Earn experience as you blog. Watch your avatar slowly grow in power with every post.
 
 == Description ==
-#Long Description
 
 What feature is WordPress severely lacking? Goblins. Dragons. This plugin is here to fix that.
 
 Earn experience as you blog. Watch your avatar slowly grow in power with every post.
+
+Complete quests to earn bonus experience by writing about selected categories.
+
+See the visual changes to your avatar as you level up.
+
+Your hero changes class according to your posting style!
 
 OpenSource - Add your own activities for your hero. https://github.com/ianfhunter/Wordpress-RPG/
 
@@ -34,72 +34,36 @@ This section describes how to install the plugin and get it working.
 
 e.g.
 
-1. Upload `plugin-name.php` to the `/wp-content/plugins/` directory
-1. Activate the plugin through the 'Plugins' menu in WordPress
-1. Place `<?php do_action('plugin_name_hook'); ?>` in your templates
+1. Upload `Wordpress-RPG/` to the `/wp-content/plugins/` directory
+2. Activate the plugin through the 'Plugins' menu in WordPress
+3. Enjoy :)
 
 == Frequently Asked Questions ==
 
-= A question that someone might have =
+= What about Feature X? =
 
-An answer to that question.
+If you'd like a feature, put in on the issue tracker and I'll take a look at it. https://github.com/ianfhunter/Wordpress-RPG/issues
 
-= What about foo bar? =
+There are plenty of things you can implement yourself, without much tech knowledge, including additional idle messages and avatar animations. Feel free to email me suggestions if you don't know how to use Github.
 
-Answer to foo bar dilemma.
+= I don't want that category to come up in my quests! =
+
+We'll hopefully address this issue in a later version. Noone gets excited about writing 'Uncategorized' Posts.
+
+= What else are you planning? =
+
+I'm thinking of adding in some graphs and stats to show how your hero has progressed. But we'll have to see how free I am, and how popular the plugin gets.
 
 == Screenshots ==
 
-1. This screen shot description corresponds to screenshot-1.(png|jpg|jpeg|gif). Note that the screenshot is taken from
-the /assets directory or the directory that contains the stable readme.txt (tags or trunk). Screenshots in the /assets 
-directory take precedence. For example, `/assets/screenshot-1.png` would win over `/tags/4.3/screenshot-1.png` 
-(or jpg, jpeg, gif).
-2. This is the second screen shot
+1. Your hero adventures while you post
+2. Status - Classes, Levels, Quests!
 
 == Changelog ==
 
 = 1.0 =
-* A change since the previous version.
-* Another change.
-
-= 0.5 =
-* List versions from most recent at top to oldest at bottom.
-
-== Upgrade Notice ==
-
-= 1.0 =
-Upgrade notices describe the reason a user should upgrade.  No more than 300 characters.
-
-= 0.5 =
-This version fixes a security related bug.  Upgrade immediately.
-
-== Arbitrary section ==
-
-You may provide arbitrary sections, in the same format as the ones above.  This may be of use for extremely complicated
-plugins where more information needs to be conveyed that doesn't fit into the categories of "description" or
-"installation."  Arbitrary sections will be shown below the built-in sections outlined above.
-
-== A brief Markdown Example ==
-
-Ordered list:
-
-1. Some feature
-1. Another feature
-1. Something else about the plugin
-
-Unordered list:
-
-* something
-* something else
-* third thing
-
-Here's a link to [WordPress](http://wordpress.org/ "Your favorite software") and one to [Markdown's Syntax Documentation][markdown syntax].
-Titles are optional, naturally.
-
-[markdown syntax]: http://daringfireball.net/projects/markdown/syntax
-            "Markdown is what the parser uses to process much of the readme file"
-
-Markdown uses email style notation for blockquotes and I've been told:
-> Asterisks for *emphasis*. Double it up  for **strong**.
-
-`<?php code(); // goes in backticks ?>`
+* First WordPress Release
+* Quests!
+* Character Classes!
+* Visually levelling Heroes!
+* Rotating Idle Messages

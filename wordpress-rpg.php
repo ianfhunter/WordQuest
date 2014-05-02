@@ -192,12 +192,44 @@ function add_experience() {
     }
 }
 
+function category_whitelist(){
+    #always returns get_categories for now.
+    $file = WP_PLUGIN_DIR."/Wordpress-RPG/exclude" . get_current_user_id() . ".rpg"; 
+    if(!file_exists($file))
+        return get_categories();    #all whitelisted
+    }else{
+        $contents = file_get_contents($file);
+        return get_categories("exclude=". rtrim(implode("&",explode(",", $contents)),"&") );    #replaces "," with "&" and removes trailing character
+    }
+}
+
 #Activates a quest
 function add_quest(){
-    $cat_list = get_categories();
+    $cat_list = categories_whitelist();
     $quest = $cat_list[array_rand($cat_list)];
     return $quest->{"cat_name"};
 }
+
+#Not integrated yet.
+function exclude_cat($number){
+    $file = WP_PLUGIN_DIR."/Wordpress-RPG/exclude" . get_current_user_id() . ".rpg"; 
+    $existing = ""
+    if(file_exists($file))
+        $existing = file_get_contents ( $file );
+    }   
+    file_put_contents($file, $existing . $number . ",");
+}
+function include_cat($name){
+    $file = WP_PLUGIN_DIR."/Wordpress-RPG/exclude" . get_current_user_id() . ".rpg"; 
+    $existing = ""
+    if(!file_exists($file))
+        return;    #nothing to un-exclude
+    } 
+    $existing = file_get_contents ( $file );
+    $new = str_replace($name . ',', '', $existing);
+    file_put_contents($file, $new);
+}
+
 
 function quest_metabox(){
     add_meta_box("rpg-metabox", "Wordpress RPG", draw_metabox, 'post', 'side', 'high');
