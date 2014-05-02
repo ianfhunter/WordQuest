@@ -1,4 +1,4 @@
-Wordpress-RPG
+WordQuest
 =============
 
 What feature is WordPress severely lacking? Goblins. Dragons. This plugin is here to fix that.

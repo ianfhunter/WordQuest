@@ -1,4 +1,4 @@
-=== WordPress RPG ===
+=== WordQuest ===
 Contributors: ianfhunter
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=94YBVKCNZRPSE
 Tags: RPG, Role-Playing Game, Game, Incentive, Posts

@@ -1,6 +1,6 @@
 <?php
 /*
-Plugin Name: Wordpress RPG
+Plugin Name: WordQuest
 Plugin URI: 
 Description: What feature is WordPress severely lacking? Goblins. Dragons. This plugin is here to fix that.
 Author: Ian Hunter
@@ -9,7 +9,7 @@ Author URI: www.ianhunter.ie
 */
 
 /*
-    Wordpress RPG
+    WordQuest
     Copyright (C) 2014  Ian Hunter ianfhunter@gmail.com
 
     This program is free software; you can redistribute it and/or modify
@@ -232,7 +232,7 @@ function include_cat($name){
 
 
 function quest_metabox(){
-    add_meta_box("rpg-metabox", "Wordpress RPG", draw_metabox, 'post', 'side', 'high');
+    add_meta_box("rpg-metabox", "WordQuest", draw_metabox, 'post', 'side', 'high');
 }
 
 function idle_messages(){
