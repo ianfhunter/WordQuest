@@ -29,7 +29,7 @@ Author URI: www.ianhunter.ie
 
 #Returns a user's active quest from file
 function get_quest(){
-    $file = WP_PLUGIN_DIR."/WordQuest/experience" . get_current_user_id() . ".rpg"; 
+    $file = WP_CONTENT_DIR."/WordQuest/experience" . get_current_user_id() . ".rpg"; 
     if (!file_exists($file)){
         $quest = add_quest();
     }else{
@@ -44,10 +44,13 @@ function get_quest(){
 #The info display in the top right hand corner.
 function admin_info_header() {
 
-    $file = WP_PLUGIN_DIR."/WordQuest/experience".get_current_user_id().".rpg"; 
+    $file = WP_CONTENT_DIR."/WordQuest/experience".get_current_user_id().".rpg"; 
     if (!file_exists($file)){
         $quest = add_quest();
         $experience = 0;
+        if (!file_exists(WP_CONTENT_DIR . "/WordQuest/")){
+            mkdir(WP_CONTENT_DIR. "/WordQuest/");
+        }
 
     }else{
         $json = file_get_contents ( $file );
@@ -83,9 +86,9 @@ function reduce($v, $p) {
 }
 
 function player_class(){
-    $file = WP_PLUGIN_DIR."/WordQuest/stats" . get_current_user_id() . ".rpg"; 
+    $file = WP_CONTENT_DIR."/WordQuest/stats" . get_current_user_id() . ".rpg"; 
     if (file_exists($file)){
-        $file = WP_PLUGIN_DIR."/WordQuest/stats" . get_current_user_id() . ".rpg"; 
+        $file = WP_CONTENT_DIR."/WordQuest/stats" . get_current_user_id() . ".rpg"; 
         $json = file_get_contents ( $file );
         $jsonD = json_decode($json,true);
 
@@ -102,7 +105,7 @@ function player_class(){
 }
 
 function calculate_stats($input){
-    $file = WP_PLUGIN_DIR."/WordQuest/stats" . get_current_user_id() . ".rpg"; 
+    $file = WP_CONTENT_DIR."/WordQuest/stats" . get_current_user_id() . ".rpg"; 
     if (!file_exists($file)){
         $stats = array( "dwarf"       => 0,
                          "giant"       => 0,
@@ -155,7 +158,7 @@ function calculate_stats($input){
 function add_experience() {
     #Making sure that experience is only added on newly published items    
     if( ( $_POST['post_status'] == 'publish' ) && ( $_POST['original_post_status'] != 'publish' ) ) {
-        $file = WP_PLUGIN_DIR."/WordQuest/experience" . get_current_user_id() . ".rpg"; 
+        $file = WP_CONTENT_DIR."/WordQuest/experience" . get_current_user_id() . ".rpg"; 
         if (!file_exists($file)){
             $experience = 0;
             $quest = add_quest();
@@ -194,7 +197,7 @@ function add_experience() {
 
 // function category_whitelist(){
 //     #always returns get_categories for now.
-//     $file = WP_PLUGIN_DIR."/WordQuest/exclude" . get_current_user_id() . ".rpg"; 
+//     $file = WP_CONTENT_DIR."/WordQuest/exclude" . get_current_user_id() . ".rpg"; 
 //     if(!file_exists($file)){
 //         return get_categories();    #all whitelisted
 //     }else{
@@ -212,7 +215,7 @@ function add_quest(){
 
 // #Not integrated yet.
 // function exclude_cat($number){
-//     $file = WP_PLUGIN_DIR."/WordQuest/exclude" . get_current_user_id() . ".rpg"; 
+//     $file = WP_CONTENT_DIR."/WordQuest/exclude" . get_current_user_id() . ".rpg"; 
 //     $existing = "";
 //     if(file_exists($file)){
 //         $existing = file_get_contents ( $file );
@@ -220,7 +223,7 @@ function add_quest(){
 //     file_put_contents($file, $existing . $number . ",");
 // }
 // function include_cat($name){
-//     $file = WP_PLUGIN_DIR."/WordQuest/exclude" . get_current_user_id() . ".rpg"; 
+//     $file = WP_CONTENT_DIR."/WordQuest/exclude" . get_current_user_id() . ".rpg"; 
 //     $existing = "";
 //     if(!file_exists($file)){
 //         return;    #nothing to un-exclude
@@ -232,7 +235,7 @@ function add_quest(){
 
 
 function quest_metabox(){
-    add_meta_box("rpg-metabox", "WordQuest", draw_metabox, 'post', 'side', 'high');
+    add_meta_box("rpg-metabox", "WordQuest", 'draw_metabox', 'post', 'side', 'high');
 }
 
 function idle_messages(){
@@ -245,7 +248,7 @@ function idle_messages(){
 function get_heroavatar(){
     $available_avatars = 7;    #TODO: generate this from the amount of files in the levels folder
     #Get level
-    $file = WP_PLUGIN_DIR."/WordQuest/experience".get_current_user_id().".rpg"; 
+    $file = content_url() . "/WordQuest/experience".get_current_user_id().".rpg"; 
     if (!file_exists($file)){
         $quest = add_quest();
         $experience = 0;
