@@ -10,7 +10,7 @@ Author URI: www.ianhunter.ie
 
 /*
     WordQuest
-    Copyright (C) 2014  Ian Hunter ianfhunter@gmail.com
+    Copyright (C) 2014  Ian Hunter ianfhunter[at symbol]gmail.com
 
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
